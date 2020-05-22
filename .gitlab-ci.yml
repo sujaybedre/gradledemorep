@@ -1,0 +1,20 @@
+image: gradle:jdk11
+
+stages:
+    - build
+    - test
+    
+build:
+    stage: build
+    script:
+        - echo "Building"
+        - ./gradlew --build-cache assemble
+    artifacts:
+        paths:
+            - build/
+            
+
+test:
+    stage: test
+    script:
+        - echo "Testing"
